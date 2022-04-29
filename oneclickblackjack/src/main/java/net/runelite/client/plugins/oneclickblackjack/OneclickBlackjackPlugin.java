@@ -174,9 +174,16 @@ public class OneclickBlackjackPlugin extends Plugin {
 			Widget food = getItem(foodMenuOption, foodBlacklist);
 			if (food != null) {
 				String[] foodMenuOptions = itemManager.getItemComposition(food.getId()).getInventoryActions();
-				event.setMenuEntry(createMenuEntry(2,MenuAction.CC_OP,food.getIndex(),WidgetInfo.INVENTORY.getId(),false));
-
-			} else {
+				event.setMenuEntry(client.createMenuEntry(
+						"",
+						"",
+						2,
+						MenuAction.CC_OP.getId(),
+						food.getIndex(),
+						WidgetInfo.INVENTORY.getId(),
+						false
+				));
+				} else {
 				notifier.notify("Out of food");
 			}
 		}
